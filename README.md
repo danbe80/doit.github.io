@@ -111,10 +111,72 @@ setInterval(handleClock, 1000);
 // 첫번째 인자: function 두번째 인자: ms(초)
 ```
 
-## 3. 배경화면 랜덤설정
+## 3. 배너 랜덤설정
 
-- 배경화면을 랜덤으로 설정
+- 배너 사진을 랜덤으로 설정
+- 배너 사진 주제는 코로나/겨울로 잡았음
+
+1. 배너로 사용할 사진을 array로 만듬
+
+```js
+  const bgimages = [
+    {
+      image: "0.png",
+      image: "1.png",
+      ...
+    }
+  ]
+```
+
+2. 배너를 감싸고 있는 div 안에 img element를 js로 생성
+
+```js
+const baseImg = document.querySelector("#background-images");
+// html에 있는 div 불러오기
+const todayIsbg = bgimages[Math.floor(Math.random() * bgimages.length)];
+// 오늘 사용할 사진 선택
+// Math.random() : 0 ~ 1 사이의 난수를 return해준다.
+// Math.random() * bgimages.length -> 이미지 배열의 길이 만큼 곱해주면 0 ~ 이미지 길이 사이의 난수를 return
+// Math.floor()를 사용한 것은 random()이 소수점도 같이 return해주기 때문에 소수점을 없애줘야 한다.
+const img = document.createElement("img");
+// js에서 html 만드는 방법: createElement() 사용
+
+img.src = `images/${todayIsbg.image}`;
+// img element의 src에 이미지 넣어준다
+baseImg.appendChild(img);
+// 만든 img element를 div에 append해준다.
+```
+
+---- 움짤 넣어야징 ----
 
 ## 4. 명언 랜덤 설정
 
 - 명언이 랜덤으로 설정
+
+1. 배너 사진과 비슷한 방식으로 진행 (명언도 array로)
+
+```js
+  const sayings = [
+    {
+      eng: "영언명언",
+      kr: "해석"
+    },
+    ...
+  ]
+```
+
+2. Math.random()로 명언으로 랜덤으로 넣어줌.
+
+```js
+const waltDisneySayingEng = document.querySelector("span#waltDisney-eng");
+const waltDisneySayingKr = document.querySelector("span#waltDisney-kr");
+
+const todaySaying = sayings[Math.floor(Math.random() * sayings.length)];
+
+waltDisneySayingEng.innerText = todaySaying.eng;
+waltDisneySayingKr.innerText = todaySaying.kr;
+```
+
+## 5. Main - To Do List!
+
+- to do list 브라우저 localStorage에 저장 / 삭제 기능
