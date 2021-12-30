@@ -74,9 +74,42 @@
   }
 ```
 
+--> username으로 로그인을 할 수 있다면 로그아웃도 할 수 있으면 좋을 거 같다.
+추후 변경 사항: 로그인 후 로그아웃 버튼 생성(localStorage에 값 삭제)
+
 ## 2. 시간 표시
 
 - 현재 시각을 나타남(컴퓨터 시간 기준)
+
+1. new Date()를 이용하여 현재 시간을 가져옴
+
+```js
+const date = new Date();
+//Tue(요일) Dec(월) 28(일) 2021(년) 02:27:38 GMT+0900 (한국 표준시)
+```
+
+2. Date()에 있는 getHours, getMinutes, getSeconds를 사용해 시분초만 가져옴
+   그 후 html에 넣어준다.
+
+- 숫자가 하나만 나오는 것을 방지하기 위해 padStart를 사용 ex) 2:20:38 (X)
+
+```js
+const hours = String(date.getHours()).padStart(2, "0");
+const minutes = String(date.getMinutes()).padStart(2, "0");
+const seconds = String(date.getSeconds()).padStart(2, "0");
+// padStart는 String에서만 사용 가능
+// padStart의 첫번째 인자는 String의 길이 두번째 인자는 길이 만족하지 못할 시 설정 길이만큼 설정한 문자를 넣는다
+// padStart(2, "0")은 String길이가 2이고 만족못할 시 "0"으로 길이를 만족 시킨다.
+clock.innerText = `${hours} : ${minutes} : ${seconds}`;
+// clock = document.querySelector("#clock");
+```
+
+3. setInterval()을 사용해 반복해준다.
+
+```js
+setInterval(handleClock, 1000);
+// 첫번째 인자: function 두번째 인자: ms(초)
+```
 
 ## 3. 배경화면 랜덤설정
 
