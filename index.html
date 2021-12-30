@@ -13,8 +13,8 @@
   <h1 id="title">Welcome to Doit!</h1>
   <div>
     <div id="background-images" class="bgimage"></div>
-    <span id="waltDisney-eng"></span>
-    <span id="waltDisney-kr"></span>
+    <p id="waltDisney-eng"></p>
+    <p id="waltDisney-kr"></p>
   </div>
   <form id="login-form" class="hidden">
     <input required maxlength="10" type="text" id="username" placeholder="이름을 입력해주세요.">
@@ -22,6 +22,14 @@
   </form>
   <h2 id="greeting" class="hidden"></h2>
   <h2 id="clock"></h2>
+
+  <form class="todolistWrap" id="todo-form">
+    <h3 class="todo-title">TO DO LIST</h3>
+    <input type="text" placeholder="Enter your to-do">
+    <input type="submit" value="등록">
+  </form>
+  <ul id="todolist"></ul>
+
   <script src="script/sign.js"></script>
   <script src="script/clock.js"></script>
   <script src="script/bgimage.js"></script>

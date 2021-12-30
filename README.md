@@ -77,7 +77,7 @@
 --> username으로 로그인을 할 수 있다면 로그아웃도 할 수 있으면 좋을 거 같다.
 추후 변경 사항: 로그인 후 로그아웃 버튼 생성(localStorage에 값 삭제)
 
-## 2. 시간 표시
+## 2. 현재 시각 표시
 
 - 현재 시각을 나타남(컴퓨터 시간 기준)
 
@@ -180,3 +180,97 @@ waltDisneySayingKr.innerText = todaySaying.kr;
 ## 5. Main - To Do List!
 
 - to do list 브라우저 localStorage에 저장 / 삭제 기능
+
+1. html에 form 태그(todo 입력)와 ul 태그(입력받은 값 보여줌) 생성
+
+```html
+<form class="todolistWrap" id="todo-form">
+  <h3 class="todo-title">TO DO LIST</h3>
+  // title <input type="text" placeholder="Enter your to-do" /> // todo enter
+  <input type="submit" value="등록" /> // submit button
+</form>
+<ul id="todolist">
+  // to do list
+</ul>
+```
+
+2. ToDo(할 일) 입력/수정/저장/삭제<br>
+   (1) onSubmitToDo() 함수
+
+```js
+let toDos = []; // list 담아둘 배열
+function onSubmitToDo(event) {
+  event.preventDefault(); // 브라우저 동작 멈추기
+  const newTodo = enterToDo.value;
+  //enterToDo = document.querySelector("#todo-form input") / html
+  enterToDo.value = ""; // 입력 후 입력창 비워주기
+
+  const newToDoObj = {
+    text: newTodo,
+    id: Date.now(),
+  };
+  // newTodo를 object로 만들어 보냄
+  // 이유는 삭제 시 같은 text들이 같이 지워지는 것을 방지해 각 li마다 다른 id를 주기 위해서
+  toDos.push(newToDoObj);
+  writeToDo(newToDoObj); // 브라우저에 보여질 함수
+  savedToDo(); // todo 저장 함수
+}
+```
+
+(2) writeToDo() 함수
+
+```js
+const li = document.createElement("li");
+const span = document.createElement("span");
+const xbtn = document.createElement("button");
+// ul에 추가할 Element 생성
+span.innerText = newTodo;
+xbtn.innerText = "❌";
+
+xbtn.addEventListener("click", deleteToDo);
+// 삭제 버튼 클릭 시 일어나는 이벤트 함수
+
+li.appendChild(span);
+li.appendChild(xbtn);
+// li에 span, button 추가
+todolist.appendChild(li);
+//ul 안에 li 추가
+//todolist = document.querySelector("#todolist") / html
+```
+
+(3) deleteToDo() 함수
+
+```js
+const del = event.target.parentElement;
+// 클릭 한 버튼의 부모 element를 del 변수에 저장
+del.remove(); // del변수 삭제
+toDos = toDos.filter((toDo) => toDo.id !== parseInt(del.id));
+// toDo.id와 del.id가 같다면 toDos에 저장되지 않는다.
+savedToDo(); // 새로 만들어진 toDos배열을 다시 저장
+```
+
+(4) savedToDo() 함수
+
+```js
+function savedToDo() {
+  localStorage.setItem(TODOLIST_KEY, JSON.stringify(toDos));
+  // stringify()는 string형태로 변형
+}
+```
+
+3. localStroage 값 확인
+
+```js
+const savedToDos = localStorage.getItem(TODOLIST_KEY);
+
+if (savedToDos !== null) {
+  // 비어 있다면
+  const parseToDos = JSON.parse(savedToDos);
+  toDos = parseToDos; // 저장되어 있는 값을 다시 배열에 넣어줌
+  parseToDos.forEach(writeToDo); // 화면에 저장되어 있는 TODO를 보여줌
+  //forEach()는 각각의 변수를 반복 실행해준다.
+  // ex) arr=[1,2,3,4] arr.forEach((item) => console.log(item)) => 출력 : 1 2 3 4
+}
+```
+
+-> 수정 기능 추가

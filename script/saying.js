@@ -42,8 +42,8 @@ const sayings = [
 
 ]
 
-const waltDisneySayingEng = document.querySelector("span#waltDisney-eng");
-const waltDisneySayingKr = document.querySelector("span#waltDisney-kr");
+const waltDisneySayingEng = document.querySelector("p#waltDisney-eng");
+const waltDisneySayingKr = document.querySelector("p#waltDisney-kr");
 
 const todaySaying = sayings[Math.floor(Math.random() * sayings.length)];
 
