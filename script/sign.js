@@ -15,7 +15,7 @@ function onLoginSubmit(event) {
 }
 
 function writeGreeting(username) {
-  greeting.innerText = `Hello ${username}!`;
+  greeting.innerText = `안녕하세요 ${username}님😊`;
   greeting.classList.remove(HIDDEN_CLASS);
   toDoForm.classList.remove(HIDDEN_CLASS);
 }
