@@ -20,8 +20,8 @@ const sayings = [
     kr: "아이디어가 떠오르면 늘 함께 해라. 아이디어를 놓치지 말고, 제대로 구현될 때까지 굴려라."
   },
   {
-    eng: "웃음은 유행을 타지 않고, 상상력은 나이를 따지지 않고, 꿈은 영원하다.",
-    kr: "Laughter is timeless, Imagination has no age, and Dreams are forever."
+    eng: "Laughter is timeless, Imagination has no age, and Dreams are forever.",
+    kr: "웃음은 유행을 타지 않고, 상상력은 나이를 따지지 않고, 꿈은 영원하다."
   },
   {
     eng: "It’s kind of fun to do the impossible.",

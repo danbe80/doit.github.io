@@ -74,6 +74,20 @@
   }
 ```
 
+### 추가사항
+
+1. username으로 로그인 시 TO DO LIST 입력창이 나타남
+   (로그아웃 시에는 입력창이 보이지 않음)
+
+```js
+  const toDoForm = document.querySeletor("#todo-form");
+
+  function writeGreeting(username) {
+  ...
+  toDoForm.classList.remove(HIDDEN_CLASS); // 추가
+}
+```
+
 --> username으로 로그인을 할 수 있다면 로그아웃도 할 수 있으면 좋을 거 같다.
 추후 변경 사항: 로그인 후 로그아웃 버튼 생성(localStorage에 값 삭제)
 

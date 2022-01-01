@@ -6,6 +6,7 @@ const TODOLIST_KEY = "todos"
 
 let toDos = [];
 
+
 function savedToDo() {
   localStorage.setItem(TODOLIST_KEY, JSON.stringify(toDos));
 }
@@ -54,3 +55,4 @@ if(savedToDos !== null) {
   toDos = parseToDos
   parseToDos.forEach(writeToDo);
 }
+
