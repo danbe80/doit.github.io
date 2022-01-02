@@ -1,5 +1,20 @@
 # Doit! - To Do List
 
+<br>
+
+---
+
+- 목차 \
+  ☝. 로그인 기능(간편 로그인 기능) \
+  ✌. 현 시각 표시 \
+  👌. 랜덤 명언 / 랜덤 배경\
+  🤞✌. 체크리스트(To Do List) 🌟
+
+---
+
+<br>
+<br>
+
 ## 1. username으로 접속하기
 
 - input 칸에 username을 등록 시 환영문구가 나타남.
@@ -91,6 +106,9 @@
 --> username으로 로그인을 할 수 있다면 로그아웃도 할 수 있으면 좋을 거 같다.
 추후 변경 사항: 로그인 후 로그아웃 버튼 생성(localStorage에 값 삭제)
 
+<br>
+<br>
+
 ## 2. 현재 시각 표시
 
 - 현재 시각을 나타남(컴퓨터 시간 기준)
@@ -124,6 +142,9 @@ clock.innerText = `${hours} : ${minutes} : ${seconds}`;
 setInterval(handleClock, 1000);
 // 첫번째 인자: function 두번째 인자: ms(초)
 ```
+
+<br>
+<br>
 
 ## 3. 배너 랜덤설정
 
@@ -163,6 +184,9 @@ baseImg.appendChild(img);
 
 ---- 움짤 넣어야징 ----
 
+<br>
+<br>
+
 ## 4. 명언 랜덤 설정
 
 - 명언이 랜덤으로 설정
@@ -190,6 +214,9 @@ const todaySaying = sayings[Math.floor(Math.random() * sayings.length)];
 waltDisneySayingEng.innerText = todaySaying.eng;
 waltDisneySayingKr.innerText = todaySaying.kr;
 ```
+
+<br>
+<br>
 
 ## 5. Main - To Do List!
 
@@ -288,3 +315,5 @@ if (savedToDos !== null) {
 ```
 
 -> 수정 기능 추가
+
+To Do List CheckBox 추가!

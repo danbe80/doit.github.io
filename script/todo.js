@@ -7,11 +7,6 @@ const todolist = document.querySelector("#todolist");
 const TODOLIST_KEY = "todos"
 
 let toDos = [];
-let newToDoObj = {
-  text: '',
-  id: Date.now(),
-  check: false
-}
 
 function savedToDo() {
   localStorage.setItem(TODOLIST_KEY, JSON.stringify(toDos));
@@ -25,23 +20,14 @@ function deleteToDo(event) {
 }
 
 function checkToDo(event){
-  const check = event.target.nextElementSibling;
+  const check = event.target;
   const result =  check.classList.toggle("line");
-  const targetCheck = event.target.parentElement;
-  const getData = JSON.parse(localStorage.getItem(TODOLIST_KEY));
-  for(i in getData) {
-    
-  }
 
-  
   if (result){
-    check.style.textDecoration = "line-through";
-    check.style.color = "#afafaf";
-    // a = a.filter((t) => t.id === parseInt(targetCheck.id) )
+    check.nextElementSibling.classList.add("line");
   }
   else {
-    check.style.textDecoration = "none"
-    check.style.color = "inherit";
+    check.nextElementSibling.classList.remove("line");
   }
 }
 
@@ -54,7 +40,7 @@ function writeToDo(newTodo){
   li.id = newTodo.id;
   span.innerText = newTodo.text;
   xbtn.innerText = "❌";
-  checkbox.type = "checkbox";
+  checkbox.type = "checkbox";;
 
   xbtn.addEventListener("click", deleteToDo);
   checkbox.addEventListener("click", checkToDo);
@@ -69,10 +55,9 @@ function onSubmitToDo(event){
   event.preventDefault();
   const newTodo = enterToDo.value;
   enterToDo.value = "";
-  newToDoObj = {
+  const newToDoObj = {
     text: newTodo,
-    id: Date.now(),
-    check: false
+    id: Date.now()
   }
   toDos.push(newToDoObj);
   writeToDo(newToDoObj);

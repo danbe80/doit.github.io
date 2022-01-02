@@ -71,6 +71,10 @@ body {
 .todolist > li > input {
   width: 10%;
 }
+li > input.line + span.line {
+  color: #ccc;
+  text-decoration: line-through;
+}
 .todolist > li > button {
   width: 10%;
   border: none;
