@@ -11,6 +11,7 @@ function onLoginSubmit(event) {
   const username = loginInput.value;
   loginForm.classList.add(HIDDEN_CLASS);
   localStorage.setItem( USERNAME_KEY, username);
+  logoutBtn();
   writeGreeting(username);
 }
 
@@ -20,6 +21,20 @@ function writeGreeting(username) {
   toDoForm.classList.remove(HIDDEN_CLASS);
 }
 
+function deleteUsername() {
+  localStorage.clear();
+  location.reload();
+}
+
+function logoutBtn() {
+  const btn = document.createElement("img");
+  const wrap = document.querySelector("#logout-wrap");
+  btn.src = `images/icon1.png`
+  btn.classList.add("logout");
+  wrap.prepend(btn);
+
+  btn.addEventListener("click", deleteUsername);
+}
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 

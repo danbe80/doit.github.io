@@ -46,6 +46,8 @@ body {
   margin-bottom: 2%;
 }
 .todolistWrap > input {
+  width: 50%;
+  text-align: center;
   border: none;
   outline: none;
   border-bottom: 2px solid #ccc;
@@ -109,9 +111,29 @@ li > input.line + span.line {
   font-family: 'Lato', sans-serif;
   line-height: 20px;
 }
+
+.clockAndBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
 .clock {
-  padding-top: 5px;
+  padding: 10px 0;
   height: 5%;
   font-size: 25px;
-  color: #313131;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.logoutWrap { 
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+}
+.logoutWrap .logout {
+  width: 100%;
+}
+.logout:hover {
+  opacity: .5;
 }
