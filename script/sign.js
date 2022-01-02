@@ -11,7 +11,6 @@ function onLoginSubmit(event) {
   const username = loginInput.value;
   loginForm.classList.add(HIDDEN_CLASS);
   localStorage.setItem( USERNAME_KEY, username);
-  logoutBtn();
   writeGreeting(username);
 }
 
@@ -19,6 +18,7 @@ function writeGreeting(username) {
   greeting.innerText = `안녕하세요 ${username}님😊`;
   greeting.classList.remove(HIDDEN_CLASS);
   toDoForm.classList.remove(HIDDEN_CLASS);
+  logoutBtn();
 }
 
 function deleteUsername() {
