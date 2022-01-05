@@ -1,7 +1,5 @@
 const clock = document.querySelector("#clock");
 
-
-
 function handleClock() {
   const date = new Date();
   const hours = String(date.getHours()).padStart(2, "0");

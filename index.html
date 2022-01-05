@@ -10,38 +10,49 @@
 </head>
 
 <body>
-  <div class="topWrap">
-    <div class="clockAndBtn">
-      <h2 id="clock" class="clock"></h2>
-      <div class="logoutWrap" id="logout-wrap"></div>
-    </div>
 
-    <h2 id="greeting" class="hidden user"></h2>
+  <div id="loginWrap" class="login-wrap">
+    <p class="notion">개인적인 공부를 위해 만든 사이트입니다.</p>
+    <!-- 첫 화면에 무조건 띄우기 -->
+    <div class="user-wrap"></div>
+    <form id="login-form">
+      <input required autocomplete="off" type="text" id="username" placeholder="이름을 입력해주세요.">
+    </form>
+  </div>
+  <div id="mainWrap" class="main-wrap hidden">
+    <header>
+      <!-- clock/weather/links/logout(toggle)/Langauges -->
+      <div id="clock"></div>
+      <div id="weather">
+        <span></span>
+        <span></span>
+      </div>
+      <div id="greeting" class="greeting"></div>
+      <div id="logoutWrap" class="logout-wrap"></div>
 
-    <div class="todoAndLoginWrap">
-      <form id="login-form" class="loginWrap hidden">
-        <input required maxlength="10" type="text" id="username" placeholder="이름을 입력해주세요.">
-      </form>
-      <form class="todolistWrap hidden" id="todo-form">
-        <h3 class="todo-title">TO DO LIST📌</h3>
-        <input type="text" placeholder="Enter your to-do">
+    </header>
+
+    <div class="todo-wrap" id="todoWrap">
+      <form id="todo-form">
+        <h2 class="todo-title">TO DO LIST📌</h2>
+        <input type="text" placeholder="할 일을 써주세요.">
       </form>
       <ul id="todolist" class="todolist"></ul>
     </div>
 
     <div class="saying">
-      <p id="waltDisney-eng"></p>
-      <p id="waltDisney-kr"></p>
+      <p id="saying-eng"></p>
+      <p id="saying-kr"></p>
     </div>
-
   </div>
-  <div id="background-images" class="bgimage"></div>
+  <div class="bgimage" id="background-images"></div>
 
   <script src="script/sign.js"></script>
   <script src="script/clock.js"></script>
   <script src="script/bgimage.js"></script>
   <script src="script/saying.js"></script>
   <script src="script/todo.js"></script>
+  <script src="script/weather.js"></script>
 </body>
 
 </html>
