@@ -19,32 +19,56 @@
       <input required autocomplete="off" type="text" id="username" placeholder="이름을 입력해주세요.">
     </form>
   </div>
+
+
   <div id="mainWrap" class="main-wrap hidden">
-    <header>
+    <div class="first-wrap">
       <!-- clock/weather/links/logout(toggle)/Langauges -->
-      <div id="clock"></div>
-      <div id="weather">
-        <span></span>
-        <span></span>
-      </div>
-      <div id="greeting" class="greeting"></div>
       <div id="logoutWrap" class="logout-wrap"></div>
 
-    </header>
+      <div class="user-profile">
+        <div id="profilePhoto" class="profile-photo"></div>
+        <div id="clock"></div>
+        <div id="weather" class="weather-wrap">
+          <span></span>
+          <span></span>
+        </div>
+        <!-- profile photo -->
+        <div id="photoWrap" class="photo-wrap">
+          <img src="images/user.png" alt="profile-photo">
+          <div class="file-wrap">
+            <label for="upLoadPhoto" id="fileUpload">프로필 바꾸기</label>
+            <input type="file" id="upLoadPhoto" class="upload-photo" accept=".jpg, .jpeg, .png"
+              onchange="changeProfile(event)" />
+          </div>
+        </div>
+        <div id="greeting" class="greeting-wrap"></div>
+      </div>
 
-    <div class="todo-wrap" id="todoWrap">
-      <form id="todo-form">
-        <h2 class="todo-title">TO DO LIST📌</h2>
-        <input type="text" placeholder="할 일을 써주세요.">
-      </form>
-      <ul id="todolist" class="todolist"></ul>
+      <div class="saying">
+        <p id="saying-eng"></p>
+        <p id="saying-kr"></p>
+      </div>
+
     </div>
 
-    <div class="saying">
-      <p id="saying-eng"></p>
-      <p id="saying-kr"></p>
+    <div class="second-wrap">
+      <div class="todo-wrap" id="todoWrap">
+        <form id="todo-form">
+          <h2 class="todo-title">TO DO LIST📌</h2>
+          <input type="text" placeholder="할 일을 써주세요.">
+        </form>
+        <ul id="todolist" class="todolist"></ul>
+      </div>
+
+
+    </div>
+    <div class="third-wrap">
+      <div class="paint-wrap"></div>
+      <div class="link-wrap"></div>
     </div>
   </div>
+
   <div class="bgimage" id="background-images"></div>
 
   <script src="script/sign.js"></script>
@@ -53,6 +77,7 @@
   <script src="script/saying.js"></script>
   <script src="script/todo.js"></script>
   <script src="script/weather.js"></script>
+  <script src="script/profile.js"></script>
 </body>
 
 </html>
