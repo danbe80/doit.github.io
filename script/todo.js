@@ -1,6 +1,6 @@
-const todolistForm = document.querySelector("#todo-form");
-const enterToDo = document.querySelector("#todo-form input");
-const todolist = document.querySelector("#todolist");
+const todolistForm = document.querySelector("#todoForm");
+const enterToDo = document.querySelector("#todoForm input");
+const todolist = document.querySelector("#todoList");
 
 
 
@@ -36,19 +36,25 @@ function writeToDo(newTodo){
   const span = document.createElement("span");
   const xbtn = document.createElement("button");
   const checkbox = document.createElement("input");
+  const label = document.createElement("label");
   
   li.id = newTodo.id;
   span.innerText = newTodo.text;
   xbtn.innerText = "❌";
-  checkbox.type = "checkbox";;
+  checkbox.type = "checkbox";
+  checkbox.id = "checkBox";
+  label.for = checkbox.id;
 
   xbtn.addEventListener("click", deleteToDo);
-  checkbox.addEventListener("click", checkToDo);
+  label.addEventListener("click", checkToDo);
 
   li.appendChild(checkbox);
+  li.appendChild(label);
   li.appendChild(span);
   li.appendChild(xbtn);
   todolist.prepend(li);
+
+  enterToDo.blur();
 }
 
 function onSubmitToDo(event){

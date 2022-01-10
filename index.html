@@ -54,11 +54,12 @@
 
     <div class="second-wrap">
       <div class="todo-wrap" id="todoWrap">
-        <form id="todo-form">
+        <form class="todo-form" id="todoForm">
           <h2 class="todo-title">TO DO LIST📌</h2>
-          <input type="text" placeholder="할 일을 써주세요.">
+          <input type="text" placeholder="할 일을 써주세요." onfocus="this.placeholder=''"
+            onblur="this.placeholder='할 일을 써주세요.'">
         </form>
-        <ul id="todolist" class="todolist"></ul>
+        <ul id="todoList" class="todo-list"></ul>
       </div>
 
 
