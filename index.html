@@ -65,7 +65,28 @@
 
     </div>
     <div class="third-wrap">
-      <div class="paint-wrap"></div>
+      <div class="paint-wrap">
+        <canvas class="canvas" id="canvas"></canvas>
+        <div class="controls-wrap" id="controlsWrap">
+          <div class="controls_range">
+            <input type="range" id="rangeBrush" min="0.1" max="5" value="2.5" step="1.0">
+          </div>
+          <div class="controls_btn">
+            <button class="btn_fill" id="fillMode">Fill</button>
+            <button class="btn_save" id="saveBtn">Save</button>
+          </div>
+          <ul class="color-picker" id="colorPicker">
+            <li class="colors" style="background-color: #FF1700;"></li>
+            <li class="colors" style="background-color: #548CFF;"></li>
+            <li class="colors" style="background-color: #06FF00;"></li>
+            <li class="colors" style="background-color: #FFE400;"></li>
+            <li class="colors" style="background-color: #FF8E00;"></li>
+            <li class="colors" style="background-color: #7900FF;"></li>
+            <li class="colors" style="background-color: #541212;"></li>
+            <li class="colors" style="background-color: #0F0E0E;"></li>
+          </ul>
+        </div>
+      </div>
       <div class="link-wrap"></div>
     </div>
   </div>
@@ -79,6 +100,7 @@
   <script src="script/todo.js"></script>
   <script src="script/weather.js"></script>
   <script src="script/profile.js"></script>
+  <script src="script/paint.js"></script>
 </body>
 
 </html>
