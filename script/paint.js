@@ -1,8 +1,10 @@
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext('2d');
 const colors = document.getElementsByClassName("colors");
+const range = document.querySelector("#rangeBrush");
 const mode = document.querySelector("#fillMode");
 const saveBtn = document.querySelector("#saveBtn");
+const resetBtn = document.querySelector("#reBtn")
 
 const INITIAL_COLOR = "#000000";
 
@@ -21,6 +23,7 @@ ctx.lineWidth = 2.5;
 
 let painting = false;
 let filling = false;
+let reset= false;
 
 function stopPainting(){
   painting = false;
@@ -45,14 +48,58 @@ function handleCM(event){
 } 
 
 function handleColorClick(event){
-  const color = event.target.style.backgroundColor;
+  const chooseColor = event.target;
+  const color = chooseColor.style.backgroundColor;
+  Array.from(colors).forEach( col => {col.classList.remove("selete")});
+  chooseColor.classList.add("selete");
   ctx.strokeStyle = color;
   ctx.fillStyle = color;
 }
+
 function handleCanvasClick(){
   if(filling){
     ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
   }
+}
+function handleRangeChange(event) {
+  const size = event.target.value;
+  ctx.lineWidth = size;
+}
+function handleModeClick(){
+  if(filling === true){
+    filling = false;
+    mode.innerText = "Fill";
+  }
+  else {
+    filling = true;
+    mode.innerText = "Paint";
+  }
+}
+function handleSaveClick(){
+  const image = canvas.toDataURL();
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = "Paint";
+  link.click();
+}
+
+function handleResetClick(){
+  ctx.fillStyle = `#ffffff`;
+  ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+  ctx.beginPath();
+}
+
+if(mode) {
+  mode.addEventListener("click", handleModeClick);
+}
+if(saveBtn){
+  saveBtn.addEventListener("click", handleSaveClick);
+}
+if(range){
+  range.addEventListener("input", handleRangeChange);
+}
+if(resetBtn) {
+  resetBtn.addEventListener("click", handleResetClick);
 }
 Array.from(colors).forEach(color => {
   color.addEventListener("click", handleColorClick);

@@ -269,7 +269,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 .third-wrap .paint-wrap canvas {
   width: 300px;
@@ -280,11 +280,24 @@ body {
   display: flex;
   flex-direction: column;
 }
-.controls-wrap .controls_range {
+.controls-wrap .controls-range {
   margin-bottom: 10px;
 }
-.controls-wrap .controls_btn {
+.controls-wrap .controls-btn {
   margin-bottom: 5px;
+}
+.controls-wrap .controls-btn > button {
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, .5);
+  border: 1px solid #1A374D;
+  padding: 4px 6px;
+  margin: 0 2px;
+}
+.controls-wrap .controls-btn > button:hover {
+  background-color: rgba(105, 152, 171, .6);
+  transition: all .3s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  color: rgba(255, 255, 255, .8);
 }
 
 .controls-wrap .color-picker {
@@ -304,6 +317,11 @@ body {
   box-sizing: border-box;
   margin: 1%;
 
+}
+.controls-wrap .color-picker .colors.selete {
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  transform: scale(1.15);
 }
 .controls-wrap .color-picker .colors:hover {
   transform: scale(1.15);

@@ -68,12 +68,13 @@
       <div class="paint-wrap">
         <canvas class="canvas" id="canvas"></canvas>
         <div class="controls-wrap" id="controlsWrap">
-          <div class="controls_range">
-            <input type="range" id="rangeBrush" min="0.1" max="5" value="2.5" step="1.0">
+          <div class="controls-range">
+            <input type="range" id="rangeBrush" min="1" max="5" value="2.5" step="1.0">
           </div>
-          <div class="controls_btn">
-            <button class="btn_fill" id="fillMode">Fill</button>
-            <button class="btn_save" id="saveBtn">Save</button>
+          <div class="controls-btn">
+            <button class="btn-fill" id="fillMode">Fill</button>
+            <button class="btn-save" id="saveBtn">Save</button>
+            <button class="btn-reset" id="reBtn">Reset</button>
           </div>
           <ul class="color-picker" id="colorPicker">
             <li class="colors" style="background-color: #FF1700;"></li>
@@ -84,6 +85,7 @@
             <li class="colors" style="background-color: #7900FF;"></li>
             <li class="colors" style="background-color: #541212;"></li>
             <li class="colors" style="background-color: #0F0E0E;"></li>
+            <li class="colors" style="background-color: #FFFFFF;"></li>
           </ul>
         </div>
       </div>
