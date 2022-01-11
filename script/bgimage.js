@@ -5,7 +5,7 @@ const bgimages = [
   { image: "1.png",
     alt: "배경화면2"    
   },
-  { image: "2.jpg",
+  { image: "2.png",
     alt: "배경화면3"    
   },
   { image: "3.png",

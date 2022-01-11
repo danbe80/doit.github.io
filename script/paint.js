@@ -8,7 +8,7 @@ const resetBtn = document.querySelector("#reBtn")
 
 const INITIAL_COLOR = "#000000";
 
-const CANVAS_SIZE = 300;
+const CANVAS_SIZE = 400;
 
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;

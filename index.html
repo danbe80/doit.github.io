@@ -16,7 +16,8 @@
     <!-- 첫 화면에 무조건 띄우기 -->
     <div class="user-wrap"></div>
     <form id="login-form">
-      <input required autocomplete="off" type="text" id="username" placeholder="이름을 입력해주세요.">
+      <input required autocomplete="off" type="text" id="username" placeholder="이름을 입력해주세요."
+        onfocus="this.placeholder=''" onblur="this.placeholder='이름을 입력해주세요.'">
     </form>
   </div>
 
@@ -28,7 +29,7 @@
 
       <div class="user-profile">
         <div id="profilePhoto" class="profile-photo"></div>
-        <div id="clock"></div>
+        <div class="clock" id="clock"></div>
         <div id="weather" class="weather-wrap">
           <span></span>
           <span></span>
@@ -89,7 +90,35 @@
           </ul>
         </div>
       </div>
-      <div class="link-wrap"></div>
+
+      <div class="link-wrap">
+        <ul class="links">
+          <li class="link">
+            <a href="https://www.youtube.com/" target="_blank">
+              <img src="images/link-youtube.png" alt="youtube link">
+            </a>
+          </li>
+          <li class="link">
+            <a href="https://github.com/" target="_blank">
+              <img src="images/link-github.png" alt="github link">
+            </a>
+          </li>
+          <li class="link">
+            <a href="https://twitter.com/" target="_blank">
+              <img src="images/link-twitter.png" alt="twitter link">
+            </a>
+          </li>
+          <li class="link">
+            <a href="https://www.instagram.com/" target="_blank">
+              <img src="images/link-instagram.png" alt="instagram link">
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="madeby">
+        <p>made by <span><a href="https://github.com/danbe80" target="_blank">danbe8080</a> </span>developer</p>
+      </div>
     </div>
   </div>
 

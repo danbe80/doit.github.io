@@ -15,6 +15,7 @@ function onLoginSubmit(event) {
   const username = loginInput.value;
   localStorage.setItem( USERNAME_KEY, username);
   writeGreeting(username);
+  loginInput.blur();
 }
 
 function writeGreeting(username) {
