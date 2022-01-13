@@ -1,12 +1,14 @@
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext('2d');
 const colors = document.getElementsByClassName("colors");
+const initialColor = document.querySelector("#initialColor");
 const range = document.querySelector("#rangeBrush");
 const mode = document.querySelector("#fillMode");
 const saveBtn = document.querySelector("#saveBtn");
 const resetBtn = document.querySelector("#reBtn")
 
-const INITIAL_COLOR = "#000000";
+
+const INITIAL_COLOR = initialColor.style.backgroundColor;
 let CANVAS_WIDTH = canvas.offsetWidth;
 let CANVAS_HEIGHT = canvas.offsetHeight;
 
@@ -17,9 +19,11 @@ function checkCanvasSize(){
   CANVAS_WIDTH = canvas.offsetWidth;
   CANVAS_HEIGHT = canvas.offsetHeight;
 
+  Array.from(colors).forEach(color => {color.classList.remove('selete')})
+  initialColor.classList.add("selete");
+
   canvas.width = CANVAS_WIDTH;
   canvas.height = CANVAS_HEIGHT;
-  
  
   ctx.lineWidth = range.value;
   ctx.fillStyle = "#ffffff";
@@ -49,18 +53,14 @@ function startPainting(){
 function onMouseMove(event){
   const x = event.offsetX;
   const y = event.offsetY;
-  console.log("1",x,y);
-  console.dir(event);
   
   if(!painting){
     ctx.beginPath();
     ctx.moveTo(x, y);
-    console.log("2",x,y);
   }
   else{
     ctx.lineTo(x, y);
     ctx.stroke();
-    console.log("3",x,y);
   }
 }
 function handleCM(event){
