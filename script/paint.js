@@ -7,14 +7,29 @@ const saveBtn = document.querySelector("#saveBtn");
 const resetBtn = document.querySelector("#reBtn")
 
 const INITIAL_COLOR = "#000000";
+let CANVAS_WIDTH = canvas.offsetWidth;
+let CANVAS_HEIGHT = canvas.offsetHeight;
 
-const CANVAS_SIZE = 400;
+canvas.width = CANVAS_WIDTH;
+canvas.height = CANVAS_HEIGHT;
 
-canvas.width = CANVAS_SIZE;
-canvas.height = CANVAS_SIZE;
+function checkCanvasSize(){
+  CANVAS_WIDTH = canvas.offsetWidth;
+  CANVAS_HEIGHT = canvas.offsetHeight;
 
+  canvas.width = CANVAS_WIDTH;
+  canvas.height = CANVAS_HEIGHT;
+  
+ 
+  ctx.lineWidth = range.value;
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+}
+
+ctx.lineWidth = 2.5;
 ctx.fillStyle = "#ffffff";
-ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
 ctx.strokeStyle = INITIAL_COLOR;
 ctx.fillStyle = INITIAL_COLOR;
@@ -34,13 +49,18 @@ function startPainting(){
 function onMouseMove(event){
   const x = event.offsetX;
   const y = event.offsetY;
+  console.log("1",x,y);
+  console.dir(event);
+  
   if(!painting){
     ctx.beginPath();
     ctx.moveTo(x, y);
+    console.log("2",x,y);
   }
   else{
     ctx.lineTo(x, y);
     ctx.stroke();
+    console.log("3",x,y);
   }
 }
 function handleCM(event){
@@ -58,7 +78,7 @@ function handleColorClick(event){
 
 function handleCanvasClick(){
   if(filling){
-    ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   }
 }
 function handleRangeChange(event) {
@@ -85,7 +105,7 @@ function handleSaveClick(){
 
 function handleResetClick(){
   ctx.fillStyle = `#ffffff`;
-  ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+  ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.beginPath();
 }
 
@@ -112,4 +132,5 @@ if(canvas){
   canvas.addEventListener("mouseleave", stopPainting); // canvas 영역에서 벗어남
   canvas.addEventListener("contextmenu", handleCM); // 마우스 오른쪽 클릭
   canvas.addEventListener("click", handleCanvasClick);
+  window.addEventListener("resize", checkCanvasSize);
 }

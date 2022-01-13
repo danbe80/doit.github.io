@@ -89,24 +89,49 @@ body {
   justify-content: center;
   align-items: center;
 }
+.main-wrap .menu-bar {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 30px;
+  left: -5px;
+  padding: 10px 15px;
+  background-color: rgba(105, 152, 171, .6);
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  display: none;
+  margin: 0;
+}
+.main-wrap .menu-bar:hover {
+  transform: translateX(5px);
+  transition: all .5s;
+}
+.main-wrap .menu-bar > img {
+  width: 100%;
+  height: 100%;
+}
 .main-wrap > * {
   width: 32.3333%;
-
-}
-.main-wrap  .first-wrap {
-  height: 96%;
   border-radius: 20px;
+  background-color: rgba(105, 152, 171, .6);
+  height: 96%;
   margin: 2%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  background-color: rgba(105, 152, 171, .6);
+
 }
-.first-wrap .logout-wrap {
-  display: inline-block;
+.main-wrap  .first-wrap {
+  justify-content: space-evenly;
+  transition: all .5s;
+}
+.first-wrap .btn-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 10px 0 10px;
+}
+
+.btn-wrap .logout-wrap {
   width: 34px;
-  height: 4%;
-  margin: 10px auto 0 10px;
 }
 .logout-wrap .logout {
   width: 100%;
@@ -116,6 +141,19 @@ body {
 .logout-wrap .logout:hover {
   border-radius: 50%;
   box-shadow: rgba(50, 50, 93, 0.25) 3px 5px 10px -3px inset, rgba(0, 0, 0, 0.3) 0px 18px 10px -18px inset;
+}
+.btn-wrap .close-wrap {
+  width: 34px;
+  opacity: .5;
+  display: none;
+}
+.btn-wrap .close-wrap:hover {
+  opacity: 1;
+  transition: all .5s;
+}
+.close-wrap img {
+  width: 100%;
+  height: 100%;
 }
 .first-wrap .user-profile {
   display: flex;
@@ -182,13 +220,7 @@ body {
 }
 
 .main-wrap .second-wrap {
-  display: flex;
-  flex-direction: column;
   justify-content: flex-start;
-  border-radius: 20px;
-  margin: 2%;
-  height: 96%;
-  background-color: rgba(105, 152, 171, .6);
 }
 .second-wrap .todo-wrap {
   width: 100%;
@@ -265,14 +297,7 @@ body {
 }
 
 .main-wrap .third-wrap {
-  display: flex;
-  flex-direction: column;
   justify-content: flex-start;
-  border-radius: 20px;
-  margin: 2%;
-  height: 96%;
-  background-color: rgba(105, 152, 171, .6);
-
 }
 .third-wrap .paint-wrap {
   display: flex;
@@ -283,9 +308,9 @@ body {
   height: 70%;
 }
 .third-wrap .paint-wrap canvas {
-  width: 400px;
-  height: 400px;
-  margin-bottom: 10px;
+  width: 90%;
+  height: 80%;
+  margin: 20px 0;
 }
 .third-wrap .paint-wrap .controls-wrap {
   display: flex;
@@ -400,4 +425,30 @@ body {
 .third-wrap .madeby > p > span > a:visited {
   text-decoration: none;
   color: #B8B5FF;
+}
+
+/* responsive web */
+@media screen and (max-width: 1500px){
+  .main-wrap .menu-bar {
+    display: block;
+  }
+  .main-wrap  .first-wrap {
+    position: absolute;
+    top: 0;
+    left: -600px;
+    height: 100%;
+    margin: 0;
+    border-radius: 0 20px 20px 0; 
+    background-color: rgba(105, 152, 171, 1);
+  }
+  .btn-wrap .close-wrap {
+    display: block;
+  }
+  .main-wrap .second-wrap {
+    width: 30%;
+  }
+  .main-wrap .third-wrap {
+    width: 50%;
+  }
+  
 }
