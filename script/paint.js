@@ -131,6 +131,11 @@ if(canvas){
   canvas.addEventListener("mouseup", stopPainting); // 마우스 클릭 X
   canvas.addEventListener("mouseleave", stopPainting); // canvas 영역에서 벗어남
   canvas.addEventListener("contextmenu", handleCM); // 마우스 오른쪽 클릭
+  // mobile
+  canvas.addEventListener("touchstart", startPainting);
+  canvas.addEventListener("touchmove", onMouseMove);
+  canvas.addEventListener("touchend", stopPainting);
+  
   canvas.addEventListener("click", handleCanvasClick);
   window.addEventListener("resize", checkCanvasSize);
 }

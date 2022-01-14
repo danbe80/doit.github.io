@@ -25,3 +25,7 @@ hours의 변수 형태를 let으로 바꾸어 주어야 실행가능
 weather API는 openweathermap.org 사이트를 이용
 Current Weather Data API를 사용
 API는 다른 사이트와 대화(응답)을 주고받음
+
+그림판이 스마트폰에선 사용이 불가
+-> 그 이유는 mouse 이벤트를 사용해서이기 때문
+폰에서도 사용이 가능한 이벤트를 사용해야 한다.
