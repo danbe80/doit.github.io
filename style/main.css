@@ -221,12 +221,12 @@
 .third-wrap .paint-wrap canvas {
   width: 90%;
   height: 80%;
-  margin: 20px 0;
 }
 .third-wrap .paint-wrap .controls-wrap {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 .controls-wrap .controls-range {
   margin-bottom: 10px;
@@ -289,8 +289,8 @@
   height: 100%;
 }
 .third-wrap .link-wrap ul.links .link {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin: 0 10px;
 }
 .third-wrap .link-wrap ul.links .link > a {
@@ -415,12 +415,34 @@
     width: 90%;
     height: 80%;
     top: -10000px;
-    margin: 5% 0;
+  }
+  .third-wrap .link-wrap ul.links .link {
+    width: 25px;
+    height: 25px;
+
   }
   .main-wrap .navigation-menu {
     display: block;
+    height: 15%;
   }
   .main-wrap .menu-bar {
     display: none;
+  }
+}
+
+@media screen and (max-width: 282px) {
+  .main-wrap .total-wrap > * {
+    position: absolute;
+    width: 90%;
+    height: 85%;
+    top: -10000px;
+  }
+  .main-wrap .navigation-menu {
+    width: 90%;
+    height: 10%;
+  }
+  .user-profile .photo-wrap {
+    width: 80%;
+    height: 50%;
   }
 }
