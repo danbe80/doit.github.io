@@ -1,12 +1,14 @@
 const upload = document.querySelector("#fileUpload");
 const profile = document.querySelector("#photoWrap > img");
 const file = document.querySelector("#upLoadPhoto");
-const profileBtn = document.querySelector("#profileBtn");
+const profileBtnLg = document.querySelector("#profileBtn-lg");
+const profileBtnSm = document.querySelector("#profileBtn-sm");
 const closeBtn = document.querySelector("#closeWrap");
 const profileWrap = document.querySelector("#firstWrap");
 
-const PROFILE_KEY = `photo`;
+const body = document.querySelector("body");
 
+const PROFILE_KEY = `photo`;
 
 // change event
 function changeProfile(event){
@@ -25,12 +27,16 @@ if(localStorage.getItem(PROFILE_KEY) !== null){
 
 function handleProfileBtn(){
   profileWrap.style.left = 0;
-}
+  console.log("등장")
+;}
 
 function handleCloseBtn() {
-  profileWrap.style.left = '-600px'
+  profileWrap.style.left = `-${profileWrap.offsetWidth}px`;
 }
-
-profileBtn.addEventListener("click", handleProfileBtn);
+function onResized(){
+  profileWrap.style = "";
+}
+profileBtnLg.addEventListener("click", handleProfileBtn);
+profileBtnSm.addEventListener("click", handleProfileBtn);
 closeBtn.addEventListener("click", handleCloseBtn);
-
+window.addEventListener("resize", onResized);
