@@ -41,7 +41,7 @@ function checkCanvasSize(){
   ctx.lineWidth = range.value;
   ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-
+  ctx.fillStyle = INITIAL_COLOR;
 }
 
 function stopPainting(){
@@ -54,16 +54,22 @@ function startPainting(){
 function handleTouchMove(event){
   event.preventDefault();
   let touches = event.changedTouches;
-  const x = touches[0].pageX;
-  const y = touches[0].pageY;
-  console.log(touches);
+  const x = touches[0].pageX - canvas.offsetLeft;
+  const y = touches[0].pageY - canvas.offsetTop;
+
   if(!painting){
     ctx.beginPath();
+
   }
   else{
     ctx.lineTo(x, y);
     ctx.stroke();
   }
+}
+function handleTouchEnd(event){
+  event.preventDefault();
+  stopPainting();
+  ctx.beginPath();
 }
 
 /* 마우스(PC)) */
@@ -152,7 +158,7 @@ if(canvas){
   // mobile
   canvas.addEventListener("touchstart", startPainting);
   canvas.addEventListener("touchmove", handleTouchMove);
-  canvas.addEventListener("touchend", stopPainting);
+  canvas.addEventListener("touchend", handleTouchEnd);
   
   canvas.addEventListener("click", handleCanvasClick);
   window.addEventListener("resize", checkCanvasSize);
