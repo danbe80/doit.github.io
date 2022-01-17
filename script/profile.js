@@ -27,7 +27,6 @@ if(localStorage.getItem(PROFILE_KEY) !== null){
 
 function handleProfileBtn(){
   profileWrap.style.left = 0;
-  console.log("등장")
 ;}
 
 function handleCloseBtn() {
