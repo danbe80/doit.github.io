@@ -51,6 +51,15 @@ function startPainting(){
   painting = true;
 }
 /* 터치(모바일) */
+function handleTouchStart(event){
+  event.preventDefault();
+  if(filling){
+    handleCanvasClick();
+  }
+  else {
+    startPainting();
+  }
+}
 function handleTouchMove(event){
   event.preventDefault();
   let touches = event.changedTouches;
@@ -59,7 +68,6 @@ function handleTouchMove(event){
 
   if(!painting){
     ctx.beginPath();
-
   }
   else{
     ctx.lineTo(x, y);
@@ -156,7 +164,7 @@ if(canvas){
   canvas.addEventListener("mouseleave", stopPainting); // canvas 영역에서 벗어남
   canvas.addEventListener("contextmenu", handleCM); // 마우스 오른쪽 클릭
   // mobile
-  canvas.addEventListener("touchstart", startPainting);
+  canvas.addEventListener("touchstart", handleTouchStart);
   canvas.addEventListener("touchmove", handleTouchMove);
   canvas.addEventListener("touchend", handleTouchEnd);
   
