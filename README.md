@@ -13,7 +13,9 @@
 
 ## 서비스 소개
 
-### ①
+### ① 로그인 서비스
+
+- 회원가입 없이 이름만으로 로그인할 수 있다.
 
 cursor pointer not working 문제
 -> z-index 충돌 정리
@@ -29,5 +31,6 @@ API는 다른 사이트와 대화(응답)을 주고받음
 그림판이 스마트폰에선 사용이 불가
 -> 그 이유는 mouse 이벤트를 사용해서이기 때문
 폰에서도 사용이 가능한 이벤트를 사용해야 한다.
+touch Events 사용해줄 예정
 
 https://danbe80.github.io/doit.github.io/

@@ -15,6 +15,19 @@ let CANVAS_HEIGHT = canvas.offsetHeight;
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 
+ctx.lineWidth = 2.5;
+ctx.fillStyle = "#ffffff";
+ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+ctx.strokeStyle = INITIAL_COLOR;
+ctx.fillStyle = INITIAL_COLOR;
+
+ctx.lineWidth = 2.5;
+
+let painting = false;
+let filling = false;
+let reset= false;
+
 function checkCanvasSize(){
   CANVAS_WIDTH = canvas.offsetWidth;
   CANVAS_HEIGHT = canvas.offsetHeight;
@@ -31,25 +44,29 @@ function checkCanvasSize(){
 
 }
 
-ctx.lineWidth = 2.5;
-ctx.fillStyle = "#ffffff";
-ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-
-ctx.strokeStyle = INITIAL_COLOR;
-ctx.fillStyle = INITIAL_COLOR;
-
-ctx.lineWidth = 2.5;
-
-let painting = false;
-let filling = false;
-let reset= false;
-
 function stopPainting(){
   painting = false;
 }
 function startPainting(){
   painting = true;
 }
+/* 터치(모바일) */
+function handleTouchMove(event){
+  event.preventDefault();
+  let touches = event.changedTouches;
+  const x = touches[0].pageX;
+  const y = touches[0].pageY;
+  console.log(touches);
+  if(!painting){
+    ctx.beginPath();
+  }
+  else{
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  }
+}
+
+/* 마우스(PC)) */
 function onMouseMove(event){
   const x = event.offsetX;
   const y = event.offsetY;
@@ -106,6 +123,7 @@ function handleSaveClick(){
 function handleResetClick(){
   ctx.fillStyle = `#ffffff`;
   ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  ctx.fillStyle = INITIAL_COLOR;
   ctx.beginPath();
 }
 
@@ -133,7 +151,7 @@ if(canvas){
   canvas.addEventListener("contextmenu", handleCM); // 마우스 오른쪽 클릭
   // mobile
   canvas.addEventListener("touchstart", startPainting);
-  canvas.addEventListener("touchmove", onMouseMove);
+  canvas.addEventListener("touchmove", handleTouchMove);
   canvas.addEventListener("touchend", stopPainting);
   
   canvas.addEventListener("click", handleCanvasClick);
