@@ -12,7 +12,7 @@ html/css/javascript
 
 ## 목표
 
-> vanilla Javascript로만 사용해 서비스를 개발하기 위함
+> vanilla Javascript만을 사용해 웹사이트 만들기
 
 ---
 
@@ -73,7 +73,7 @@ localStorage.setItem(USERNAME_KEY, username); // key와 함께 username을 저�
 
   <img src="https://user-images.githubusercontent.com/85651246/149812881-dbd3c2e8-0625-4706-be5e-6ea17602a13a.gif">
 
-cursor pointer not working 문제
+<!-- cursor pointer not working 문제
 -> z-index 충돌 정리
 
 PM AM 추가 문제
@@ -92,4 +92,4 @@ touch Events 사용해줄 예정 -> 1월 17일 수정 완료
 iphone(IOS) safari 기준 복수 탭 쓰면 아래 하얀 여백이 생성
 -> 단일탭 사용시에는 여백이 없어짐
 
-2021년 1월 17일 최종 1.0 ver 완성
+2021년 1월 17일 최종 1.0 ver 완성 -->
