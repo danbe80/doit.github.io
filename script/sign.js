@@ -25,10 +25,6 @@ function writeGreeting(username) {
   logoutBtn();
 }
 
-function deleteUsername() {
-  localStorage.clear();
-  location.reload();
-}
 
 function logoutBtn() {
   const btn = document.createElement("img");
@@ -38,6 +34,11 @@ function logoutBtn() {
   logoutWrap.prepend(btn);
 
   btn.addEventListener("click", deleteUsername);
+}
+
+function deleteUsername() {
+  localStorage.clear();
+  location.reload();
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
