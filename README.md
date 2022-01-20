@@ -2,7 +2,7 @@
 
 개인적인 공부를 위해 개발한 사이트입니다.
 
-## [두잇(Doit)](https://danbe80.github.io/doit.github.io/) - 완성된 사이트
+## <a href="https://danbe80.github.io/doit.github.io/" target="_blank">두잇(Doit)</a> - 완성된 사이트
 
 [Usage]
 html/css/javascript
@@ -73,23 +73,6 @@ localStorage.setItem(USERNAME_KEY, username); // key와 함께 username을 저�
   <img src="https://user-images.githubusercontent.com/85651246/149810731-bdc13b67-3244-4275-a49c-2b523e53bbeb.png">
 
   <img src="https://user-images.githubusercontent.com/85651246/149812881-dbd3c2e8-0625-4706-be5e-6ea17602a13a.gif">
-
----
-
-- 3. 명언
-  - 랜덤으로 나오는 영문 명언과 해석
-    <img src="https://user-images.githubusercontent.com/85651246/149876762-a4b1a688-e052-49ca-8f52-7fc7c0198ce7.gif">
-
-'sayings'라는 변수에 명언을 담은 배열을 저장 \
-[Math함수](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math)를 사용해
-
-```js
-const todaySaying = sayings[Math.floor(Math.random() * sayings.length)];
-```
-
-[Math.random()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/random) 함수는 0 ~ 1 사이의 숫자를 return해준다. \
-그렇기 때문에 배열의 길이 만큼을 곱하여 0 ~ sayings.length 사이의 숫자가 return되게 해준다. \
-return받은 숫자를 [Math.floor()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) 함수를 사용하여 무조건 내림으로 정수를 받는다.
 
 ### ② Clock & Weather API
 
@@ -214,7 +197,7 @@ if (hours > 12) {
   }
   ```
 
-  ### ④ Paint (그림판)
+  ### ④ Paint (그림판) - [CANVAS API](https://developer.mozilla.org/ko/docs/Web/API/Canvas_API)
 
   - 전체적인 기능 \
     <img src="https://user-images.githubusercontent.com/85651246/149898934-7f7ea815-a909-4cd5-b9ef-e603c886463e.gif" width="300px"> \
@@ -222,6 +205,115 @@ if (hours > 12) {
     <img src="https://user-images.githubusercontent.com/85651246/149899781-9560be31-49ae-4e1b-8505-92025958c592.gif" width="500px"> \
     <실제 저장된 그림> \
     <img src="https://user-images.githubusercontent.com/85651246/149900344-289cc5db-4836-464f-abb4-1a3abd011b6e.png" width="300px">
+
+    ***
+
+  - **_canvas 사용시 주의할 점_** \
+    style에 직접 크기를 정해주어야 함
+
+    ***
+
+  - colors (색상 선택)
+
+    <img src="https://user-images.githubusercontent.com/85651246/150081856-5e8890be-8dfc-405f-a591-fab0ac4e354b.PNG" width="300px">
+
+    초기 기본 선택은 검정색으로 설정되어 있음
+
+    ```html
+    <li
+      id="initialColor"
+      class="colors selete"
+      style="background-color: #0F0E0E;"
+    ></li>
+    ```
+
+    ```js
+    const INITIAL_COLOR = initialColor.style.backgroundColor;
+    ```
+
+    - selete color \
+      <img src="https://user-images.githubusercontent.com/85651246/150082063-91d1cafa-6d78-4c2d-97e5-0d5b8c9dcf95.PNG" width="100px">
+
+    선택된 색상은 하얀색 border가 들어가 있음
+
+    ```js
+    const chooseColor = event.target;
+    const color = chooseColor.style.backgroundColor;
+    Array.from(colors).forEach((col) => {
+      col.classList.remove("selete");
+    }); // class중 selete 제거
+    chooseColor.classList.add("selete"); // 선택된 컬러에 class 추가
+    ```
+
+    - basic color \
+      <img src="https://user-images.githubusercontent.com/85651246/150082676-7b88bf02-824f-42fb-8454-fb367bd8028a.PNG" width="100px">
+
+    선택되지 않은 색상은 border가 none이 되어 있음
+
+---
+
+- Fill & Paint (모드 변경)
+
+   <img src="https://user-images.githubusercontent.com/85651246/150113502-d37f2a72-f577-4ee6-b275-00022b9a4952.PNG">
+  : 버튼이 'fill'인 상태에선 line이 사용
+
+    <img src="https://user-images.githubusercontent.com/85651246/150113392-4d78bf37-f627-4fdc-8c30-229588c6a02e.PNG">
+  : 버튼이 'paint'인 상태에선 fill이 사용
+
+- Reset (초기화)
+
+  <img src="https://user-images.githubusercontent.com/85651246/150115661-b0f6a4cc-2302-489e-a6cb-0c7bba475a67.PNG">
+  :버튼 클릭 시 그림판 초기화
+
+- Save (그림 저장)
+
+  <img src="https://user-images.githubusercontent.com/85651246/150115788-a6ba314f-be20-4a13-a0fb-c8a7f03da027.PNG">
+
+- Range (브러쉬 사이즈)
+
+  <img src="https://user-images.githubusercontent.com/85651246/150115977-1e9626d9-dfa4-4aba-bfca-f6a8de408fbb.PNG">
+
+---
+
+### ④ 바로가기 (Links)
+
+<img src="https://user-images.githubusercontent.com/85651246/150114878-d25bf74b-905c-41da-a4f0-b1802ff32e2a.PNG">
+
+아이콘 클릭 시 새로운 탭에서 해당 웹페이지로 이동
+
+---
+
+- 그 외
+
+  - 배경화면 랜덤설정
+
+    배경화면 이미지를 배열로 저장
+    명언과 똑같이 [Math함수](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math)를 사용
+
+  ```js
+  const todayIsbg = bgimages[Math.floor(Math.random() * bgimages.length)];
+  ```
+
+  ***
+
+  - 명언
+  - 랜덤으로 나오는 영문 명언과 해석
+    <img src="https://user-images.githubusercontent.com/85651246/149876762-a4b1a688-e052-49ca-8f52-7fc7c0198ce7.gif">
+
+  'sayings'라는 변수에 명언을 담은 배열을 저장 \
+  [Math함수](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math)를 사용해
+
+  ```js
+  const todaySaying = sayings[Math.floor(Math.random() * sayings.length)];
+  ```
+
+  [Math.random()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/random) 함수는 0 ~ 1 사이의 숫자를 return해준다. \
+  그렇기 때문에 배열의 길이 만큼을 곱하여 0 ~ sayings.length 사이의 숫자가 return되게 해준다. \
+  return받은 숫자를 [Math.floor()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) 함수를 사용하여 무조건 내림으로 정수를 받는다.
+
+<hr>
+
+## 개발과정 중 어려웠던 점(해결방안)
 
   <!-- cursor pointer not working 문제
   -> z-index 충돌 정리
