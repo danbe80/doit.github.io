@@ -4,9 +4,15 @@
 
 ## <a href="https://danbe80.github.io/doit.github.io/" target="_blank">두잇(Doit)</a> - 완성된 사이트
 
-[Usage]
-html/css/javascript
+[ Tech ]
+
+<img src="https://img.shields.io/badge/-html-%23E34F26?style=flat-square&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/-css-%231572B6?style=flat-square&logo=css3">
+<img src="https://img.shields.io/badge/-javascript-%23F7DF1E?style=flat-square&logo=JavaScript&logoColor=eee">
+
 <br>
+
+모바일, 패드, PC 환경에서 사용 가능
 
 ---
 
@@ -315,23 +321,65 @@ if (hours > 12) {
 
 ## 개발과정 중 어려웠던 점(해결방안)
 
-  <!-- cursor pointer not working 문제
-  -> z-index 충돌 정리
+1. cursor: pointer; not working
 
-PM AM 추가 문제
--> const 는 값이을 변환할 수 없는 변수였기 때문에
-hours의 변수 형태를 let으로 바꾸어 주어야 실행가능
+   - 원인 : z-index의 충돌로 인한 오류
+   - 해결 방안 : element의 z-index를 정리해줌
 
-weather API는 openweathermap.org 사이트를 이용
-Current Weather Data API를 사용
-API는 다른 사이트와 대화(응답)을 주고받음
+2. clock service PM AM 추가 시 변수 오류 발생
 
-그림판이 스마트폰에선 사용이 불가
--> 그 이유는 mouse 이벤트를 사용해서이기 때문
-폰에서도 사용이 가능한 이벤트를 사용해야 한다.
-touch Events 사용해줄 예정 -> 1월 17일 수정 완료
+   - 원인 : 모든 변수들을 const로 설정해놨기 때문에 값을 변경할 수 없다.
+   - 해결 방안 : AM/PM을 추가할 시 hours(시)에 따라 결정되며 13시 부터는 값을 변경해주어야 하므로 hours만 const -> let으로 변경해 값을 변경할 수 있도록 했다.
 
-iphone(IOS) safari 기준 복수 탭 쓰면 아래 하얀 여백이 생성
--> 단일탭 사용시에는 여백이 없어짐
+3. **_canvas touch event_** - 제일 고생한 부분
 
-2021년 1월 17일 최종 1.0 ver 완성 -->
+   - 원인 : mouse event를 사용해 모바일에선 그림판 사용이 안됨
+   - 해결 방안 : touch event를 사용하면 모바일에서도 사용이 가능
+
+   ```js
+   // mobile 이벤트 추가
+   canvas.addEventListener("touchstart", handleTouchStart);
+   canvas.addEventListener("touchmove", handleTouchMove);
+   canvas.addEventListener("touchend", handleTouchEnd);
+
+   /* 터치(모바일) */
+   function handleTouchStart(event) {
+     event.preventDefault();
+     if (filling) {
+       // 채우기 모드가 true이면
+       handleCanvasClick();
+     } else {
+       // painting 모드가 true이면
+       startPainting();
+     }
+   }
+   function handleTouchMove(event) {
+     // 터치 후 움직임 감지 이벤트
+     event.preventDefault();
+     let touches = event.changedTouches;
+     const x = touches[0].pageX - canvas.offsetLeft;
+     const y = touches[0].pageY - canvas.offsetTop;
+
+     if (!painting) {
+       ctx.beginPath();
+     } else {
+       ctx.lineTo(x, y);
+       ctx.stroke();
+     }
+   }
+   function handleTouchEnd(event) {
+     event.preventDefault();
+     stopPainting();
+     ctx.beginPath();
+   }
+   ```
+
+---
+
+## 최종
+
+<아직 수정되지 않은 점>
+
+- 현재 Iphone(IOS) safari 기준 복수탭 기능이 생기면서 복수탭 상태에선 아래 하얀 여백이 생성되는 것을 확인
+
+  하지만 단일탭 사용으로 바꿀 시 여백이 없어지는 것을 확인
