@@ -1,4 +1,4 @@
-const clock = document.querySelector("#clock");
+const clock = document.querySelector("#clockJs");
 
 function handleClock() {
   const date = new Date();
@@ -8,17 +8,15 @@ function handleClock() {
   const am = `AM`;
   const pm = `PM`;
   let meridiem = ``;
-  if(hours > 12){
+  if (hours > 12) {
     meridiem = pm;
     hours = hours - 12;
     clock.innerText = `${meridiem} ${hours}:${minutes}:${seconds}`;
-  }
-  else {
+  } else {
     meridiem = am;
     clock.innerText = `${meridiem} ${hours}:${minutes}:${seconds}`;
   }
 }
-
 
 setInterval(handleClock, 1000);
 

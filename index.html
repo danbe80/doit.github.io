@@ -1,38 +1,48 @@
+<!-- 
+  22.4.3 디자인과 구조 변경 => momentum 스럽게 변경
+  js 파일에 ES6 문법 사용으로 변경 (arrow function)
+  localStorage를 사용한 이유는 브라우저를 종료해도 계속 로그인 상태를 유지시키기 위해
+  세션는 브라우저가 종료되면 제거되기 때문에 pass
+  쿠키는 기간이 정해져 있음 pass
+
+
+ -->
+
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>두잇(Doit)</title>
-  <link rel="stylesheet" href="style/main.css">
+  <!-- <link rel="stylesheet" href="style/main.css" /> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="style/test.css">
 </head>
 
 <body>
-
-  <div id="loginWrap" class="login-wrap">
+  <!-- <div id="loginWrap" class="login-wrap">
     <p class="notion">개인적인 공부를 위해 만든 사이트입니다.</p>
-    <!-- 첫 화면에 무조건 띄우기 -->
     <div class="user-wrap"></div>
-    <form id="login-form">
+
+    <form id="loginForm">
       <input required autocomplete="off" type="text" id="username" placeholder="이름을 입력해주세요."
-        onfocus="this.placeholder=''" onblur="this.placeholder='이름을 입력해주세요.'">
+        onfocus="this.placeholder=''" onblur="this.placeholder='이름을 입력해주세요.'" />
     </form>
-  </div>
+  </div> -->
 
-
-  <div id="mainWrap" class="main-wrap hidden">
+  <!-- <div id="mainWrap" class="main-wrap hidden">
     <div id="profileBtn-lg" class="menu-bar">
-      <img src="images/user.png" alt="메뉴바">
+      <img src="images/user.png" alt="메뉴바" />
     </div>
     <div class="total-wrap">
       <div id="firstWrap" class="first-wrap wrap">
-        <!-- clock/weather/links/logout(toggle)/Langauges -->
         <div class="btn-wrap">
           <div id="logoutWrap" class="logout-wrap"></div>
           <div id="closeWrap" class="close-wrap">
-            <img src="images/icon3.png" alt="closeButton">
+            <img src="images/icon3.png" alt="closeButton" />
           </div>
         </div>
 
@@ -43,9 +53,8 @@
             <span></span>
             <span></span>
           </div>
-          <!-- profile photo -->
           <div id="photoWrap" class="photo-wrap">
-            <img src="images/user.png" alt="profile-photo">
+            <img src="images/user.png" alt="profile-photo" />
             <div class="file-wrap">
               <label for="upLoadPhoto" id="fileUpload">프로필 바꾸기</label>
               <input type="file" id="upLoadPhoto" class="upload-photo" accept=".jpg, .jpeg, .png"
@@ -59,26 +68,23 @@
           <p id="saying-eng"></p>
           <p id="saying-kr"></p>
         </div>
-
       </div>
       <div id="todolistWrap" class="second-wrap wrap check-list">
         <div class="todo-wrap" id="todoWrap">
           <form class="todo-form" id="todoForm">
             <h2 class="todo-title">TO DO LIST📌</h2>
             <input type="text" placeholder="할 일을 써주세요." onfocus="this.placeholder=''"
-              onblur="this.placeholder='할 일을 써주세요.'">
+              onblur="this.placeholder='할 일을 써주세요.'" />
           </form>
           <ul id="todoList" class="todo-list"></ul>
         </div>
-
-
       </div>
       <div id="paintWrap" class="third-wrap wrap">
         <div class="paint-wrap">
           <canvas class="canvas" id="canvas"></canvas>
           <div class="controls-wrap" id="controlsWrap">
             <div class="controls-range">
-              <input type="range" id="rangeBrush" min="1" max="5" value="2.5" step="1.0">
+              <input type="range" id="rangeBrush" min="1" max="5" value="2.5" step="1.0" />
             </div>
             <div class="controls-btn">
               <button class="btn-fill" id="fillMode">Fill</button>
@@ -86,15 +92,15 @@
               <button class="btn-reset" id="reBtn">Reset</button>
             </div>
             <ul class="color-picker" id="colorPicker">
-              <li class="colors" style="background-color: #FF1700;"></li>
-              <li class="colors" style="background-color: #548CFF;"></li>
-              <li class="colors" style="background-color: #06FF00;"></li>
-              <li class="colors" style="background-color: #FFE400;"></li>
-              <li class="colors" style="background-color: #FF8E00;"></li>
-              <li class="colors" style="background-color: #7900FF;"></li>
-              <li class="colors" style="background-color: #541212;"></li>
-              <li id="initialColor" class="colors selete" style="background-color: #0F0E0E;"></li>
-              <li class="colors" style="background-color: #FFFFFF;"></li>
+              <li class="colors" style="background-color: #ff1700"></li>
+              <li class="colors" style="background-color: #548cff"></li>
+              <li class="colors" style="background-color: #06ff00"></li>
+              <li class="colors" style="background-color: #ffe400"></li>
+              <li class="colors" style="background-color: #ff8e00"></li>
+              <li class="colors" style="background-color: #7900ff"></li>
+              <li class="colors" style="background-color: #541212"></li>
+              <li id="initialColor" class="colors selete" style="background-color: #0f0e0e"></li>
+              <li class="colors" style="background-color: #ffffff"></li>
             </ul>
           </div>
         </div>
@@ -103,58 +109,95 @@
           <ul class="links">
             <li class="link">
               <a href="https://www.youtube.com/" target="_blank">
-                <img src="images/link-youtube.png" alt="youtube link">
+                <img src="images/link-youtube.png" alt="youtube link" />
               </a>
             </li>
             <li class="link">
               <a href="https://github.com/" target="_blank">
-                <img src="images/link-github.png" alt="github link">
+                <img src="images/link-github.png" alt="github link" />
               </a>
             </li>
             <li class="link">
               <a href="https://twitter.com/" target="_blank">
-                <img src="images/link-twitter.png" alt="twitter link">
+                <img src="images/link-twitter.png" alt="twitter link" />
               </a>
             </li>
             <li class="link">
               <a href="https://www.instagram.com/" target="_blank">
-                <img src="images/link-instagram.png" alt="instagram link">
+                <img src="images/link-instagram.png" alt="instagram link" />
               </a>
             </li>
           </ul>
         </div>
 
         <div class="madeby">
-          <p>made by <span><a href="https://github.com/danbe80" target="_blank">danbe8080</a> </span>developer</p>
+          <p>
+            made by
+            <span><a href="https://github.com/danbe80" target="_blank">danbe8080</a> </span>developer
+          </p>
         </div>
       </div>
     </div>
     <div id="navigationMenu" class="navigation-menu wrap">
       <ul>
         <li class="check buttons">
-          <img id="listBtn" src="images/icon4.png" alt="할일">
+          <img id="listBtn" src="images/icon4.png" alt="할일" />
         </li>
         <li id="profileBtn-sm">
-          <img src="images/user.png" alt="프로필">
+          <img src="images/user.png" alt="프로필" />
         </li>
         <li class="buttons">
-          <img id="paintBtn" src="images/icon5.png" alt="그림판">
+          <img id="paintBtn" src="images/icon5.png" alt="그림판" />
         </li>
       </ul>
     </div>
+  </div> -->
+
+  <!-- <div class="bgimage" id="background-images"></div> -->
+
+  <div id="signWrap" class="sign-wrap">
+    <div class="clock-wrap">
+      <span id="clockJs" class="clock"></span>
+    </div>
+    <!-- 로그인 폼 (로그인 후 hidden) -->
+    <div id="loginWrap" class="login-wrap">
+      <span>What your name?</span>
+      <form id="loginForm" class="login-form" onsubmit={onLoginSubmit(event)}>
+        <input required autocomplete="off" id="loginInput" type="text" placeholder="너의 이름은?">
+        <input id="loginSubmit" class="btn btn-secondary" type="submit" value="등록" />
+      </form>
+    </div>
+
+    <!-- 로그인 후 -->
+    <div id="mainWrap" class="main-wrap hidden">
+      <span id="greeting"></span>
+      <form id="todoForm" onsubmit={onSubmitToDo(event)}>
+        <input id="todoInput" type="text" placeholder="오늘은 무엇을 할까요?" />
+        <input id="todoSubmit" class="btn btn-dark" type="submit" value="등록" />
+      </form>
+      <ul id="todoList">
+        <li>
+          <!-- 할 일 추가 -->
+        </li>
+      </ul>
+    </div>
+
+    <div id="sayingWrap" class="saying-wrap">
+      <p id="sayingEng" class="saying-eng"></p>
+      <p id="sayingKr" class="saying-kr"></p>
+    </div>
   </div>
 
-  <div class="bgimage" id="background-images"></div>
 
-  <script src="script/bgimage.js"></script>
-  <script src="script/sign.js"></script>
-  <script src="script/clock.js"></script>
-  <script src="script/saying.js"></script>
-  <script src="script/todo.js"></script>
-  <script src="script/weather.js"></script>
-  <script src="script/profile.js"></script>
-  <script src="script/paint.js"></script>
-  <script src="script/button.js"></script>
+  <!-- <script src="js/bgimage.js"></script> -->
+  <script src="js/sign.js"></script>
+  <script src="js/clock.js"></script>
+  <script src="js/saying.js"></script>
+  <script src="js/todo.js"></script>
+  <!-- <script src="js/weather.js"></script> -->
+  <!-- <script src="js/profile.js"></script> -->
+  <!-- <script src="js/paint.js"></script> -->
+  <!-- <script src="js/button.js"></script> -->
 </body>
 
 </html>
