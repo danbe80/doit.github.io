@@ -17,6 +17,7 @@ const onSubmitToDo = (event) => {
   };
   toDos.push(newTodoObj);
   writeToDo(newTodoObj);
+  savedToDo();
 };
 
 const writeToDo = (newTodo) => {
@@ -46,7 +47,7 @@ const writeToDo = (newTodo) => {
 
   // 클릭 이벤트
   checkinput.addEventListener("click", checkToDo);
-  // xbtn.addEventListener("click", deleteToDo);
+  xbtn.addEventListener("click", deleteToDo);
 
   // 체크박스 안에 자식들 먼저 넣어주고
   checkwrap.appendChild(checkinput);
@@ -74,23 +75,23 @@ const checkToDo = (event) => {
   }
 };
 
-// function savedToDo() {
-//   localStorage.setItem(TODOLIST_KEY, JSON.stringify(toDos));
-// }
+const deleteToDo = (event) => {
+  const deleteTarget = event.target.parentElement;
+  deleteTarget.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(deleteTarget.id));
+  savedToDo();
+};
 
-// function deleteToDo(event) {
-//   const del = event.target.parentElement;
-//   del.remove();
-//   toDos = toDos.filter((toDo)=>toDo.id !== parseInt(del.id));
-//   savedToDo();
-// }
+const savedToDo = () => {
+  localStorage.setItem(TODOLIST_KEY, JSON.stringify(toDos));
+};
 
-// todolistForm.addEventListener("submit", onSubmitToDo);
+todolistForm.addEventListener("submit", onSubmitToDo);
 
-// const savedToDos = localStorage.getItem(TODOLIST_KEY);
+const savedToDos = localStorage.getItem(TODOLIST_KEY);
 
-// if(savedToDos !== null) {
-//   const parseToDos = JSON.parse(savedToDos);
-//   toDos = parseToDos
-//   parseToDos.forEach(writeToDo);
-// }
+if (savedToDos !== null) {
+  const parseToDos = JSON.parse(savedToDos);
+  toDos = parseToDos;
+  parseToDos.forEach(writeToDo);
+}
