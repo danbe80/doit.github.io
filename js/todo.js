@@ -44,6 +44,10 @@ const writeToDo = (newTodo) => {
   checklabel.classList.add("form-check-label");
   checklabel.for = "flexCheckDefault";
 
+  // 클릭 이벤트
+  checkinput.addEventListener("click", checkToDo);
+  // xbtn.addEventListener("click", deleteToDo);
+
   // 체크박스 안에 자식들 먼저 넣어주고
   checkwrap.appendChild(checkinput);
   checkwrap.appendChild(checklabel);
@@ -58,31 +62,17 @@ const writeToDo = (newTodo) => {
   todolist.prepend(li);
 };
 
-// function writeToDo(newTodo){
-//   const li = document.createElement("li");
-//   const span = document.createElement("span");
-//   const xbtn = document.createElement("button");
-//   const checkbox = document.createElement("input");
-//   const label = document.createElement("label");
+const checkToDo = (event) => {
+  const check = event.target.parentElement;
+  const removeSpan = check.nextElementSibling;
+  const result = check.classList.toggle("line");
 
-//   li.id = newTodo.id;
-//   span.innerText = newTodo.text;
-//   xbtn.innerText = "❌";
-//   checkbox.type = "checkbox";
-//   checkbox.id = "checkBox";
-//   label.for = checkbox.id;
-
-//   xbtn.addEventListener("click", deleteToDo);
-//   label.addEventListener("click", checkToDo);
-
-//   li.appendChild(checkbox);
-//   li.appendChild(label);
-//   li.appendChild(span);
-//   li.appendChild(xbtn);
-//   todolist.prepend(li);
-
-//   enterToDo.blur();
-// }
+  if (result) {
+    removeSpan.classList.add("line");
+  } else {
+    removeSpan.classList.remove("line");
+  }
+};
 
 // function savedToDo() {
 //   localStorage.setItem(TODOLIST_KEY, JSON.stringify(toDos));
@@ -92,31 +82,6 @@ const writeToDo = (newTodo) => {
 //   const del = event.target.parentElement;
 //   del.remove();
 //   toDos = toDos.filter((toDo)=>toDo.id !== parseInt(del.id));
-//   savedToDo();
-// }
-
-// function checkToDo(event){
-//   const check = event.target;
-//   const result =  check.classList.toggle("line");
-
-//   if (result){
-//     check.nextElementSibling.classList.add("line");
-//   }
-//   else {
-//     check.nextElementSibling.classList.remove("line");
-//   }
-// }
-
-// function onSubmitToDo(event){
-//   event.preventDefault();
-//   const newTodo = enterToDo.value;
-//   enterToDo.value = "";
-//   const newToDoObj = {
-//     text: newTodo,
-//     id: Date.now()
-//   }
-//   toDos.push(newToDoObj);
-//   writeToDo(newToDoObj);
 //   savedToDo();
 // }
 
