@@ -25,6 +25,7 @@ const onLoginSubmit = (event) => {
 const writeGreeting = (username) => {
   greeting.innerText = `${username}님 반가워요!`;
   // class에 hidden을 추가해서 display:none; 으로 변경
+  user.innerText = username;
   loginWrap.classList.add(HIDDEN_CLASS);
   mainWrap.classList.remove(HIDDEN_CLASS);
 };
@@ -38,23 +39,3 @@ if (savedUsername === null) {
 } else {
   writeGreeting(savedUsername);
 }
-
-/* 
-function logoutBtn() {
-  const btn = document.createElement("img");
-  const logoutWrap = document.querySelector("#logoutWrap");
-  btn.src = `images/icon1.png`;
-  btn.classList.add("logout");
-  logoutWrap.prepend(btn);
-
-  btn.addEventListener("click", deleteUsername);
-}
-
-function deleteUsername() {
-  localStorage.clear();
-  location.reload();
-}
-
-
-
- */

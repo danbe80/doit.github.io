@@ -1,5 +1,6 @@
 @import url("reset.css");
 @import url("common.css");
+/* @import url("responsive.css"); */
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,400&display=swap");
 
 .background-images {
@@ -21,14 +22,16 @@
   padding: 50px 0;
 }
 .saying-wrap {
-  color: #6c757d;
-  font-size: 16px;
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  margin: auto;
+  padding: 0 10px;
+  color: #bdc3c7;
+  font-size: 14px;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+}
+.saying-wrap:hover {
+  color: #353b48;
+  transition: all 0.5s;
 }
 .header-wrap {
   width: 100%;
@@ -36,4 +39,33 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 10px;
+}
+.todo-list {
+  height: 250px;
+}
+.link-wrap {
+  position: relative;
+}
+.links-list {
+  margin-left: 5px;
+}
+.user-wrap {
+  position: relative;
+}
+.logout-wrap {
+  right: 15px;
+}
+.logout-wrap > i {
+  cursor: pointer;
+}
+.footer-wrap {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

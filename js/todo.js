@@ -89,7 +89,6 @@ const savedToDo = () => {
 todolistForm.addEventListener("submit", onSubmitToDo);
 
 const savedToDos = localStorage.getItem(TODOLIST_KEY);
-
 if (savedToDos !== null) {
   const parseToDos = JSON.parse(savedToDos);
   toDos = parseToDos;
