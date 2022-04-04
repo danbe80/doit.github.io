@@ -1,107 +1,60 @@
-
 body {
   text-align: center;
-  font-family: 'Lato', sans-serif;
-}
-/* background-images */
-.bgimage {
-  width: 100%;
-  height: 100%;
-  opacity: .6;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-.bgimage > img {
-  width: 100%;
-  height: 100%;
+  font-family: "Lato", sans-serif;
 }
 
-
-/* 로그인 화면(첫화면) */
-.login-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .5);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
-.login-wrap.hidden {
+.hidden {
   display: none;
 }
-.login-wrap .notion {
-  font-size: 14px;
-  color: rgba(255, 255, 255, .8);
-  line-height: 30px;
-  margin-bottom: 10px;
+
+.line {
+  text-decoration: line-through;
+}
+.wrap {
+  height: 250px;
+}
+.wrap > span {
+  font-size: 25px;
 }
 
-.login-wrap .user-wrap {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: no-repeat center/85% #6998AB url("../images/user.png");
-  margin-bottom: 15px;
-  box-shadow: 0px 0px 3px 3px rgba(58,85,95,0.5);
-}
-.login-wrap > form {
+.form-style {
+  padding: 15px 0;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 150px;
-  background-color: rgba(255, 255, 255, .8);
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-  border-radius: 35px;
 }
-.login-wrap > form > input{
-  text-align: center;
-  font-size: 20px;
+.input-style {
+  font-size: 16px;
+  padding: 2px 10px;
+  margin-right: 4px;
+  border-radius: 4px;
   border: none;
-  border-bottom: 2px solid #6998AB;
-  background-color: rgba(255, 255, 255, 0);
-  color: #1A374D;
+  border-bottom: 2px solid #6c757d;
+}
+
+.input-style:focus {
   outline: none;
+  border-color: #0d6efd;
 }
 
-/* main */
-.main-wrap.hidden {
-  display: none;
-}
-
-.main-wrap {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 5;
+.todo-list > li {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
-/* .first-wrap, .second-wrap, .third-wrap */
-.main-wrap .wrap {
-  width: 32.3333%;
-  border-radius: 20px;
-  background-color: rgba(105, 152, 171, .6);
-  height: 100%;
-  margin: 2%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+li > span {
+  width: 180px;
+  flex-wrap: nowrap;
 }
-.main-wrap .total-wrap {
-  width: 100%;
-  height: 85%;
-  display: flex;
-  justify-content: center;
+
+.btns {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: #6c757d;
+}
+.btns:hover {
+  color: #111;
+  transition: all 0.5s;
 }

@@ -41,6 +41,7 @@ const sayings = [
   },
 ];
 
+const sayingWrap = document.querySelector("#sayingWrap");
 const waltDisneySayingEng = document.querySelector("#sayingEng");
 const waltDisneySayingKr = document.querySelector("#sayingKr");
 
