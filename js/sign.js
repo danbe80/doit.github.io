@@ -25,7 +25,7 @@ const onLoginSubmit = (event) => {
 
 // 입력 후
 const writeGreeting = (username) => {
-  greeting.innerText = `${username}님 반가워요!`;
+  greeting.innerText = `${username}님 보람찬 하루 보내세요`;
   // class에 hidden을 추가해서 display:none; 으로 변경
   user.innerText = username;
   loginWrap.classList.add(HIDDEN_CLASS);

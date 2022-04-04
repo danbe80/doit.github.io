@@ -49,6 +49,10 @@
   </header>
 
   <div id="signWrap" class="sign-wrap container">
+    <div id="weatherWrap" class="weather-wrap">
+      <span id="weather" class="waether"></span>
+      <span id="city" class="city"></span>
+    </div>
     <div class="clock-wrap">
       <span id="clockJs" class="clock"></span>
     </div>
@@ -73,20 +77,50 @@
       </ul>
     </div>
 
-    <footer id="footerWrap" class="footer-wrap container">
-      <div id="paintWrap" class="paint-wrap footer-btn" style="visibility: hidden;">
-        <i class="bi bi-palette-fill"></i>
-      </div>
-      <div id="sayingWrap" class="saying-wrap">
-        <p id="sayingEng" class="saying-eng"></p>
-        <p id="sayingKr" class="saying-kr"></p>
-      </div>
-      <div id="emailWrap" class="eamil-wrap footer-btn">
-        <i class="bi bi-envelope-fill"></i>
-      </div>
-    </footer>
   </div>
+  <footer id="footerWrap" class="footer-wrap container">
+    <div id="paintWrap" class="paint-wrap footer-btn" style="visibility: hidden;">
+      <i class="bi bi-palette-fill"></i>
+    </div>
+    <div id="sayingWrap" class="saying-wrap">
+      <p id="sayingEng" class="saying-eng"></p>
+      <p id="sayingKr" class="saying-kr"></p>
+    </div>
+    <div id="emailWrap" class="eamil-wrap footer-btn">
+      <i class="bi bi-envelope-fill"></i>
+    </div>
+  </footer>
 
+  <div id="paintModalWrap" class="paint-modal-wrap container">
+    <canvas id="canvas" class="canvas"></canvas>
+    <div class="option-wrap">
+      <ul id="colorPicker" class="color-picker">
+        <li id="colors" class="colors" style="background-color: #d63031;"></li>
+        <li id="colors" class="colors" style="background-color: #e17055;"></li>
+        <li id="colors" class="colors" style="background-color: #fdcb6e;"></li>
+        <li id="colors" class="colors" style="background-color: #00b894;"></li>
+        <li id="colors" class="colors" style="background-color: #0984e3;"></li>
+        <li id="colors" class="colors" style="background-color: #6c5ce7;"></li>
+        <li id="initialColor" class="colors" style="background-color: #2d3436;"></li>
+        <li id="colors" class="colors" style="background-color: #f1f2f6;"></li>
+      </ul>
+      <div id="option" class="option">
+        <div id="rangeWrap" class="range-wrap">
+          <input type="range" id="rangeBrush" class="form-range" min="1" max="10" step="1">
+        </div>
+        <div id="brushOption" class="brush-option choose-option">
+
+        </div>
+        <div id="fillOption" class="fill-option choose-option">
+
+        </div>
+        <div id="downloadOption" class="download-option choose-option">
+          <i class="bi bi-file-arrow-down-fill"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
   <div id="bgImage" class="background-images"></div>
 
 
@@ -97,9 +131,8 @@
   <script src="js/saying.js"></script>
   <script src="js/todo.js"></script>
   <script src="js/logout.js"></script>
-  <!-- <script src="js/weather.js"></script> -->
-  <!-- <script src="js/profile.js"></script> -->
-  <!-- <script src="js/paint.js"></script> -->
+  <script src="js/weather.js"></script>
+  <script src="js/paint.js"></script>
   <!-- <script src="js/button.js"></script> -->
 </body>
 

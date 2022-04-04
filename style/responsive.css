@@ -1,5 +1,16 @@
-@media screen and (max-width: 375px) {
-  .sign-wrap {
+@media (max-width: 425px) {
+  div.sign-wrap {
     padding-top: 0;
+  }
+}
+@media (max-width: 320px) {
+  .sign-wrap .clock-wrap {
+    font-size: 70px;
+  }
+  ul.todo-list {
+    height: 150px;
+  }
+  .saying-wrap .saying-kr {
+    display: none;
   }
 }

@@ -1,8 +1,13 @@
 /* 공통으로 들어가는 CSS */
 
 body {
+  height: 100vh;
   text-align: center;
   font-family: "Lato", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .hidden {
@@ -82,9 +87,27 @@ a:hover {
   background-color: #353b48;
   color: #f1f1f1;
   border-radius: 50%;
+  cursor: pointer;
 }
 .footer-btn:hover {
   background-color: #f1f1f1;
   color: #353b48;
   transition: ease-in-out 0.5s;
+}
+.colors {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.choose-option {
+  background-color: #111;
+  color: #f1f1f1;
+  margin: 0 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.choose-option > i {
+  font-size: 25px;
 }

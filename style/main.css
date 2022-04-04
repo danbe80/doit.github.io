@@ -1,6 +1,6 @@
 @import url("reset.css");
 @import url("common.css");
-/* @import url("responsive.css"); */
+@import url("responsive.css");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,400&display=swap");
 
 .background-images {
@@ -15,11 +15,11 @@
   height: 100%;
 }
 .sign-wrap {
-  padding-top: 100px;
+  padding-top: 50px;
 }
 .clock-wrap {
   font-size: 85px;
-  padding: 50px 0;
+  padding: 10px 0 50px 0;
 }
 .saying-wrap {
   padding: 0 10px;
@@ -41,14 +41,36 @@
   padding-top: 10px;
 }
 .todo-list {
-  height: 250px;
+  width: 300px;
+  height: 230px;
+  margin: auto;
+  overflow-y: auto;
 }
+/* 스크롤바 설정*/
+.todo-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* 스크롤바 막대 설정*/
+.todo-list::-webkit-scrollbar-thumb {
+  height: 17%;
+  background-color: rgba(255, 255, 255, 1);
+  /* 스크롤바 둥글게 설정    */
+  border-radius: 10px;
+}
+
+/* 스크롤바 뒷 배경 설정*/
+.todo-list::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .link-wrap {
   position: relative;
 }
 .links-list {
   margin-left: 5px;
 }
+
 .user-wrap {
   position: relative;
 }
@@ -59,13 +81,43 @@
   cursor: pointer;
 }
 .footer-wrap {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  padding: 0 20px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.paint-modal-wrap {
+  width: 90%;
+  height: 80%;
+  margin-top: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #353b48;
+  border-radius: 10px;
+  position: absolute;
+  display: none;
+}
+.canvas {
+  width: 90%;
+  height: 80%;
+  margin-top: 5%;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.color-picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.range-wrap {
+  position: absolute;
+  left: 20%;
 }
