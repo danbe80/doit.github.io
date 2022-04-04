@@ -8,6 +8,8 @@ const mainWrap = document.querySelector("#mainWrap");
 const greeting = document.querySelector("#greeting");
 const toDoWrap = document.querySelector("#todoWrap");
 
+const paintWrap = document.querySelector("#paintWrap");
+
 // KEY
 const USERNAME_KEY = "username";
 const HIDDEN_CLASS = "hidden";
@@ -28,6 +30,7 @@ const writeGreeting = (username) => {
   user.innerText = username;
   loginWrap.classList.add(HIDDEN_CLASS);
   mainWrap.classList.remove(HIDDEN_CLASS);
+  paintWrap.style.visibility = "visible";
 };
 
 // localStorage
