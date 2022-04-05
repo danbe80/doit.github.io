@@ -88,15 +88,16 @@
 }
 
 .paint-modal-wrap {
+  position: absolute;
   width: 90%;
   height: 80%;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-left: 5%;
   margin-right: 5%;
   background-color: #353b48;
   border-radius: 10px;
-  position: absolute;
-  display: none;
+  transform: translateX(-10000px);
+  transition: ease-in-out 1s;
 }
 .canvas {
   width: 90%;
@@ -111,13 +112,15 @@
   align-items: center;
   margin-top: 10px;
 }
-.option {
+.option-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
 }
+.options {
+  display: flex;
+}
 .range-wrap {
-  position: absolute;
-  left: 20%;
+  margin-right: 10px;
 }
