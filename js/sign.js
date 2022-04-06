@@ -9,6 +9,7 @@ const greeting = document.querySelector("#greeting");
 const toDoWrap = document.querySelector("#todoWrap");
 
 const paintWrap = document.querySelector("#paintWrap");
+const emailWrap = document.querySelector("#emailWrap");
 
 // KEY
 const USERNAME_KEY = "username";
@@ -31,6 +32,7 @@ const writeGreeting = (username) => {
   loginWrap.classList.add(HIDDEN_CLASS);
   mainWrap.classList.remove(HIDDEN_CLASS);
   paintWrap.style.visibility = "visible";
+  emailWrap.style.visibility = "visible";
 };
 
 // localStorage
