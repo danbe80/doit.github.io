@@ -115,3 +115,13 @@ a:hover {
 .choose-option > i {
   font-size: 20px;
 }
+.form-label {
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  color: #f1f1f1;
+}
+.form-control {
+  margin-bottom: 15px;
+}

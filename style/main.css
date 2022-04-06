@@ -97,7 +97,7 @@
   background-color: #353b48;
   border-radius: 10px;
   transform: translateX(-10000px);
-  transition: ease-in-out 1s;
+  transition: ease-in-out 0.5s;
 }
 .canvas {
   width: 90%;
@@ -123,4 +123,26 @@
 }
 .range-wrap {
   margin-right: 10px;
+}
+.email-modal-wrap {
+  width: 400px;
+  position: absolute;
+  background-color: #353b48;
+  bottom: 10%;
+  right: 10%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transform: translateX(-10000px);
+  transition: ease-in-out 0.5s;
+}
+.thankyou_message {
+  margin: 15px 0;
+  color: #00cec9;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.success-btn {
+  color: #bdc3c7;
 }

@@ -1,3 +1,9 @@
+@media (max-width: 1920px) {
+  div.paint-modal-wrap {
+    margin-top: 2%;
+    padding-bottom: 50px;
+  }
+}
 @media (max-width: 768px) {
 }
 @media (max-width: 425px) {
@@ -6,6 +12,10 @@
   }
   div.paint-modal-wrap {
     margin-top: 10%;
+  }
+  div.email-modal-wrap {
+    width: 80%;
+    bottom: 15%;
   }
 }
 @media (max-width: 375px) {

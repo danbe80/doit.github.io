@@ -91,7 +91,7 @@
     </div>
   </footer>
 
-  <!-- 그림판 -->
+  <!-- 그림판 모달-->
   <div id="paintModalWrap" class="paint-modal-wrap container">
     <canvas id="canvas" class="canvas"></canvas>
     <div class="option-wrapper">
@@ -124,6 +124,38 @@
     </div>
 
   </div>
+
+  <!-- 이메일 모달 -->
+  <div id="emailModalWrap" class="email-modal-wrap">
+    <form action="https://script.google.com/macros/s/AKfycbySVbjzWoj1P4EYSy7ra8W35H_Ip2qnVQ9oEzF-Xw/exec" method="post"
+      class="gform" id="contactEmailForm">
+      <div class="thankyou_message" style="display: none;">
+        <p class="success-notice">
+          이메일이 성공적으로 발송되었습니다.
+        </p>
+        <button type="button" class="btn-close success-btn" id="deleteP" aria-label="Close"></button>
+      </div>
+      <div class="form-elements">
+        <div class="email-name">
+          <label for="name" class="form-label">이름</label>
+          <input required type="text" class="form-control name-input" name="name" type="name" placeholder="이름을 입력해주세요.">
+        </div>
+        <div class="email-address">
+          <label for="exampleFormControlInput1" class="form-label">이메일</label>
+          <input required type="email" class="form-control" name="email" id="exampleFormControlInput1"
+            placeholder="name@example.com">
+        </div>
+        <div class="email-content">
+          <label for="exampleFormControlTextarea1" class="form-label">문의사항</label>
+          <textarea required class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"
+            placeholder="문의사항을 입력해주세요."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitBtn" onclick="return checkEmail();">보내기</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- 뒷배경 -->
   <div id="bgImage" class="background-images"></div>
 
 
@@ -136,6 +168,9 @@
   <script src="js/logout.js"></script>
   <script src="js/weather.js"></script>
   <script src="js/paint.js"></script>
+  <script src="js/check.js"></script>
+  <script src="js/email.js"></script>
+
 </body>
 
 </html>
