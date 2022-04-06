@@ -1,4 +1,3 @@
-const emailWrap = document.querySelector("#emailWrap");
 const emailModalWrap = document.querySelector("#emailModalWrap");
 const deleteP = document.querySelector("#deleteP");
 const thankyouMessage = document.getElementsByClassName("thankyou_message");

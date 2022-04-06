@@ -2,7 +2,7 @@ const weather = document.querySelector("#weather");
 const city = document.querySelector("#city");
 const API_KEY = "4aa557b576c9f3bcd8b17a9fa3d98b0d"; // 나의 API key
 
-function onGeoOk(position) {
+const onGeoOk = (position) => {
   // 성공시
   const lat = position.coords.latitude; // 경도
   const lon = position.coords.longitude; // 위도
@@ -15,10 +15,10 @@ function onGeoOk(position) {
       city.innerText = data.name;
       weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
     });
-}
-function onGeoError() {
+};
+const onGeoError = () => {
   // 실패시
   alert("Can't find you. No weather for you.");
-}
+};
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);

@@ -1,6 +1,6 @@
 const clock = document.querySelector("#clockJs");
 
-function handleClock() {
+const handleClock = () => {
   const date = new Date();
   let hours = date.getHours();
   const minutes = String(date.getMinutes()).padStart(2, "0");
@@ -15,7 +15,7 @@ function handleClock() {
     meridiem = am;
     clock.innerText = `${meridiem} ${hours}:${minutes}`;
   }
-}
+};
 
 setInterval(handleClock, 1000);
 
